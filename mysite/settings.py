@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xwlrcdweaes!r%agiv0nz_j&ij3y5-x1k83v!)mqb6s3fphh%%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ahmadfaiz.pythonanywhere.com']
+ALLOWED_HOSTS = ['ahmadfaiz.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -78,7 +78,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -120,8 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT=BASE_DIR.as_posix()+ "static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT=BASE_DIR.as_posix()+ "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
